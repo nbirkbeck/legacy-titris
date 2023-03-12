@@ -1,5 +1,6 @@
 #ifndef _AI_H_
 #define _AI_H_
+#include "titris.h"
 void AIgetSurfOutline(int* array);
 void AIfindDestination(TITRI* titri);
 void AIfindDestination(TITRI* titri);
