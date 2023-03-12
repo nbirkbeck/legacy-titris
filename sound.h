@@ -1,0 +1,2 @@
+
+void PlaySound(const char*);
