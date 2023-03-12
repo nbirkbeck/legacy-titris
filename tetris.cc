@@ -1722,17 +1722,19 @@ int Game_Main()
 	{
 	case GAMESTART:
 	{
-		titrisInit();
-		for(int it=0;it<100;it++)
-		{
-			drawBackground();
-			///while (FAILED(lpddsprimary->Flip(NULL, DDFLIP_WAIT)));
-		}
-		setState(GAMEMENU);
+          static int count = 0;
+          titrisInit();
+          count++;
+          drawBackground();
+          ///while (FAILED(lpddsprimary->Flip(NULL, DDFLIP_WAIT)));
+          if (count == 100) {
+            count = 0;
+            setState(GAMEMENU);
 
-		//state=GAMEMENU;
-		//loadImageBackground("menu.bmp");
-		resetStats();
+            //state=GAMEMENU;
+            //loadImageBackground("menu.bmp");
+            resetStats();
+          }
 		
 	}
 	break;
