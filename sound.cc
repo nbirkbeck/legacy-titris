@@ -26,9 +26,9 @@ Sound hit_sound;
 Sound line_sound;
 Sound tetris_sound;
 std::unordered_map<std::string, Sound*> sounds = {
-                                                  {"sounds/hit.wav", &hit_sound},
-                                                  {"sounds/tetris.wav", &tetris_sound},
-                                                  {"sounds/line.wav", &line_sound},
+    {"sounds/hit.wav", &hit_sound},
+    {"sounds/tetris.wav", &tetris_sound},
+    {"sounds/line.wav", &line_sound},
 };
 
 void PlaySound(const char* filename) {
@@ -49,7 +49,6 @@ void LazyInit() {
   audio_dev =
       SDL_OpenAudioDevice(nullptr, 0, &desired_audio_spec, &audio_spec, 0);
 
-  
   SDL_LoadWAV("sounds/hit.wav", &audio_spec, &hit_sound.audio_buf,
               &hit_sound.audio_len);
   SDL_LoadWAV("sounds/tetris.wav", &audio_spec, &tetris_sound.audio_buf,
