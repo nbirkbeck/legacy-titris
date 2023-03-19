@@ -1,6 +1,6 @@
 
 OBJS=ai.o sound.o compat.o tetris.o 
-FLAGS=-O3
+FLAGS=-Wall # -O doesn't work
 
 
 all: tetris ${OBJS}

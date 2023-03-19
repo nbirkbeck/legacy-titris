@@ -64,7 +64,7 @@ SDL_Surface* hsSurf[4];
 int numMenuItems = 6;
 
 char gBuffer[255];  // Global buffer, used for high score names
-char gNumChars = 0; // global count for the above buffer
+int gNumChars = 0; // global count for the above buffer
 bool setScore = false;
 
 int delay = 100;
@@ -125,7 +125,6 @@ void resetStats() {
 
 int getNextAvailTitrisIndex() {
   int cnt = 0;
-  int i = 0;
   while (cnt < MAX_TITRI) {
     if (titris[cnt].valid == 0) {
       if (makeTitri(&titris[cnt], rand() % 7) == -1) {
@@ -811,7 +810,6 @@ void blockcpy4(BLOCK dest[4], BLOCK* src[4]) {
 
 int moveTitri(TITRI* tit, int direction) {
   BLOCK backUps[4];
-  int result = -1;
   blockcpy4(backUps, tit->blocks);
   memset(&colinfo, 0, sizeof(COLINFO));
 
@@ -1605,7 +1603,6 @@ int HandleKeyPress(SDL_Keysym keysym) {
 }
 
 int HandleInput() {
-  int wparam = 0;
   SDL_Event event;
   while (SDL_PollEvent(&event))
     switch (event.type) {

@@ -183,7 +183,6 @@ void AIfindDestination(TITRI* titri) {
   int deepFD = -1;
   int deepFU = -1;
   int deepFL = -1;
-  int i = 0;
   int j = 0;
 
   cur = titri;
@@ -265,7 +264,7 @@ break;
         if ((surfOutline[j] == surfOutline[j + 1]) &&
             (surfOutline[j + 1] == surfOutline[j + 2]) &&
             (surfOutline[j + 2] == surfOutline[j + 3])) {
-          if (deepFR = -1)
+          if (deepFR == -1)
             deepFR = j;
 
           else if (surfOutline[deepFR] < surfOutline[j])
@@ -473,7 +472,6 @@ break;
   case TNORML: {
     int deepFLS = -1;
     int deepFRS = -1;
-    int yFL = 0;
     int max1 = -1;
     int max2 = -1;
     int themax = -1;
@@ -517,10 +515,8 @@ break;
       if (surfOutline[j] == surfOutline[j + 1] - 2) {
         if (deepFL == -1) {
           deepFL = j + 1;
-          yFL = surfOutline[j];
         } else if (surfOutline[deepFL] < surfOutline[j + 1]) {
           deepFL = j + 1;
-          yFL = surfOutline[j];
         }
       }
       if (surfOutline[j] < surfOutline[j + 1] - 2) {
@@ -849,9 +845,6 @@ break;
         }
       if (deepFL != -1)
         if (surfOutline[deepFR] + 6 <= surfOutline[deepFU]) {
-          FILE* file = fopen("upstep2.txt", "w");
-          fprintf(file, "Upstep saved itself bigtime!\n");
-          fclose(file);
           gFlags = FACERIGHT;
           destBlocks[1].x = deepFL;
           destBlocks[1].y = surfOutline[deepFL];
